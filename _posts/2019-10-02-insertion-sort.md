@@ -13,7 +13,7 @@ In insertion sort, we start with the second item, and "insert" it in its correct
 
 Concrete explanation and code: For the kth item, we compare it with the (k-1)th item, then the (k-2)th item, and so on, until we find the correct place where the kth item can be inserted. Once found, we "insert" it. Inserting is done typically by shifting all the items 1 place to the right - the place emptied by the kth item.
 
-https://gist.github.com/abhishekpathak/8dad9a55c6b000ee3368b37b03c92825
+<script src="https://gist.github.com/abhishekpathak/8dad9a55c6b000ee3368b37b03c92825.js"></script>
 
 Remember we said that insertion sort was important? Well, it turns out insertion sort is the only O(n^2) algorithm that is widely used in industry. There are a few reasons for this:
 
