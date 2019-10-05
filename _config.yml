@@ -1,0 +1,22 @@
+highlighter: rouge
+markdown: kramdown
+rdiscount:
+  extensions: [smart]
+permalink: /:title.html
+paginate: 5
+plugins: [jekyll-paginate]
+safe: true
+
+
+url: https://4abhishekpathak.com/
+title: Abhishek Pathak
+author: Abhishek Pathak
+description: Personal blog and resume
+avatar: dp.jpg
+email: 4abhishekpathak@gmail.com
+github: abhishekpathak
+twitter: 4abhishekpathak
+linkedin: 4abhishekpathak
+stackoverflow: users/647952/abhishek-pathak
+#disqus: username
+#google_analytics:

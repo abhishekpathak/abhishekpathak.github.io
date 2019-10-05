@@ -1,79 +1,17 @@
-<!DOCTYPE html>
-<head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Abhishek Pathak</title>
-<meta name="keywords" content="Abhishek, Pathak, software, engineer, developer, programmer, machine, learning, data, java, python, hadoop, Bangalore, India, IITK, IIT Kanpur" />
-<meta name="description" content="The personal website of Abhishek Pathak." />
-<meta name="distribution" content="global">
-<meta name="resource-type" content="document">
-<meta name="author" content="Abhishek Pathak" />
-<meta name="language" content="en-us">
-<meta name="robots" content="index, follow" /> 
-<link href="default.css" rel="stylesheet" type="text/css" />
-<link href = "favicon.ico" rel="icon" />
-</head>
+---
+layout: home
+---
 
-<body>
-
-<div id = "main">
-	<div id = "left">
-
-		<div id = "pic">
-		<img src="images/dp.jpg" alt="" />
-		</div>
-		
-		<div id = "namebox">
-		<name> Abhishek <br> Pathak <br></name>
-		</div>
-	
+<section id="about">
+	<div class="container">
+	  <div class="avatar">
+		<img class="img-circle" src="{{ site.baseurl }}static/img/{{ site.avatar }}" alt="Responsive image" width="300" height="300">
+	  </div>
+	  <h3>Hi! I'm <strong>{{ site.author }}</strong>, a Software Engineer.</h3>
+	  <h3>I love reading, and <a href="{{ site.baseurl }}interests.html"> nerding out</a> with friends.</h3>
+	  <h3>Check out some of my open source <a target="_blank" href="http://github.com/{{ site.github }}"> projects</a>.</h3>
+	  <h3>For more, here's a link to my <a target="_blank" href="{{ site.baseurl }}static/docs/Resume_AbhishekPathak.pdf">resume</a>.</h3>
+	  <h3>Get in touch: <a target="_blank" href="mailto:{{ site.email }}">{{ site.email }}</a>.</h3>
+	  {% include social.html %}
 	</div>
-
-	<div id = "right">
-			<div id = "navmenu">
-			<ul>
-				<li><a href = "#">Home</a></li>
-				<li><a href = "#portfolio">portfolio</a></li>
-				<li><a href = "#contact">contact</a></li>
-			</ul>
-			</div>
-			
-			<div id = "content-block">
-			<blocktitle><a> about me </a></blocktitle>
-			<p> Hi!  I'm Abhishek. I'm a Software Engineer. I currently work with <a href="https://skymind.ai/about" target="_blank">Skymind</a>.</p>
-			<p> I did my engineering from <a href = "https://en.wikipedia.org/wiki/Indian_Institute_of_Technology_Kanpur" target="_blank">IIT Kanpur</a> and I currently live in <a href="https://en.wikipedia.org/wiki/Bangalore" target="_blank">Bangalore</a> with my family.</p>
-			<p> I'm always ready for a coffee and a chat on some of my favourite topics: 
-				<br><br>Ancient history. Divergent philosophies. Music with good lyrics.
-				<br><br>Cultural diversities across the globe.
-				<br><br>Physics of the universe.The artistic side of science.
-				<br><br>The Unix design principles. Google's architecture.
-				<br><br>Artificial Intelligence. Productivity.
-				<br><br>I also adore my kindle. I love to read about history, travel and wildlife.
-			</p>
-			</div>
-			
-			<div id = "content-block">
-			<blocktitle><a name = "portfolio"> portfolio </a></blocktitle>
-			<ul id = "portfolio">
-			<li><a href = "docs/Resume_AbhishekPathak.pdf" target="_blank">Resume</a></li>
-			<li><a href = "https://github.com/abhishekpathak" target="_blank">Github</a></li>
-			<li><a href = "https://stackoverflow.com/users/647952/abhishek-pathak" target="_blank">Stack Overflow</a></li>
-			<li><a href="https://www.linkedin.com/in/4abhishekpathak/" target="_blank">LinkedIn</a></li>
-			</ul>
-			</div>
-			
-			<div id = "content-block">
-			<blocktitle><a name = "contact"> contact </a> </blocktitle>
-			<p>
-			<p>The fastest way to get in touch with me is over <a style = "text-decoration:underline" href = mailto:4abhishekpathak@gmail.com> email</a> . I usually respond within a few hours.</p>
-			<p>You can also follow me on <a href="https://twitter.com/4abhishekpathak" target="_blank">twitter</a>.</p>
-			<h5>Email </h5>
-			<a style = "text-decoration:none" href = mailto:4abhishekpathak@gmail.com>4abhishekpathak@gmail.com</a>
-			</div>
-
-			<div id = "content-block">
-			<p><i>This site is hosted on <a href = "https://pages.github.com/" target="_blank">github pages</a>. Cheers, and thanks for visiting.</i></p>
-			</div> 
-	</div>
-</div>
-
-</body>
+</section>
