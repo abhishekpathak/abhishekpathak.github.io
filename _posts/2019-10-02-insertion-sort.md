@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Insertion Sort"
+title:  "The importance of Insertion Sort"
 date:   2019-10-02
 categories: blog algorithm
 ---
