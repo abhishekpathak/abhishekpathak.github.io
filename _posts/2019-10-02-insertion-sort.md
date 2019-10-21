@@ -2,10 +2,12 @@
 layout: post
 title:  "The Importance of Insertion Sort"
 date:   2019-10-02
-categories: blog algorithm
+categories: blog algorithms
 ---
 
-![Title Image](https://unsplash.com/photos/OqtafYT5kTw){:class="img-responsive"}
+![Title Image](https://picsum.photos/id/0/800/500){:class="img-responsive"}
+
+
 
 It is easy to pile up insertion sort along with other quadratic algorithms (bubble sort, selection sort) as an inefficient sorting algorithm and something only to be glanced at before moving on to the uber-cool Quicksort. Well, it turns out that insertion sort is the only O(n²) algorithm that is widely used in industry. Just what makes it  special? Lets dive deeper.
 
