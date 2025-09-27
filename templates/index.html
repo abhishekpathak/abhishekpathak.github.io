@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block description %}
+    {{ config.extra.author }} home
+{% endblock description %}
+
+{% block content %}
+    <div class="intro">
+        <div>
+            {{ section.content | safe }}
+        </div>
+        <img src="profile.png" alt="Responsive image" width="100" height="100">
+    </div>
+{% endblock content %}

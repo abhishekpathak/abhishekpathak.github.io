@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="{% block description %}{% endblock description %}">
+      <meta name="author" content="{{ config.extra.author }}">
+      <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+      <link rel="stylesheet" href="{{ get_url(path="site.css", cachebust=true) }}" />
+      <link rel="shortcut icon" type="image/png" href="{{ get_url(path="favicon.ico") }}"/>
+      <link href="{{ get_url(path="rss.xml") }}" rel="feed" type="application/rss+xml" title="{{ config.title }}" />
+    </head>
+
+    <header id="header">
+        <h1 class="logo"><a href="/">{{ config.extra.author }}</a></h1>
+        <ul>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/interests/">Interests</a></li>
+            <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/abhishekpathak/">Github</a></li>
+        </ul>
+    </header>
+
+    <body>
+        <div id="content">
+          {% block content %}
+          {% endblock content %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block description %}
+    {{ config.extra.author }} interests
+{% endblock description %}
+
+{% block content %}
+    <div>
+        {{ page.content | safe }}
+    </div>
+{% endblock content %}

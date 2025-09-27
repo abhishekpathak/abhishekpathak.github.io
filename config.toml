@@ -1,0 +1,24 @@
+base_url = "https://4abhishekpathak.com"
+title = "Abhishek Pathak"
+description = "Abhishek Pathak"
+
+generate_feeds = true
+feed_filenames = ["rss.xml"]
+
+compile_sass = true
+
+[markdown]
+highlight_code = true
+highlight_theme = "cheerfully-light"
+external_links_target_blank = true
+external_links_no_follow = true
+external_links_no_referrer = true
+
+[link_checker]
+skip_anchor_prefixes = [
+    "https://github.com/",
+]
+
+[extra]
+author = "4abhishekpathak"
+email = "4abhishekpathak@gmail.com"

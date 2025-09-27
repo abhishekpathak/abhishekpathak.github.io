@@ -1,15 +1,2 @@
 # operating system files
 .DS_Store
-
-# Jekyll build
-/_site/
-.jekyll-metadata
-Gemfile.lock
-vendor/
-.bundle/
-
-# editor files
-.idea/
-
-# others
-*.swp

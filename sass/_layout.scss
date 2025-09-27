@@ -1,0 +1,68 @@
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: 1.5rem;
+    font-family: $header-font;
+  }
+
+  .logo {
+    font-family: $signature-font;
+    font-size: 3rem;
+    margin: 0;
+
+    a {
+      color: black;
+      text-decoration: none;
+      border-bottom: none;
+    }
+  }
+}
+
+#content {
+  max-width: $container-width;
+  margin-top: 8rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+
+  h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+  }
+
+  li {
+    margin-bottom: 1rem;
+    list-style-type: circle;
+  }
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+}
+
+.intro img {
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover;  /* Ensures the image content fills the circle without distortion */
+}
+
+@media (min-width: 768px) {
+  .intro {
+    flex-direction: row;
+    align-items: top; /* This will vertically center the items */
+  }
+
+  .intro img {
+    margin-top: 25px;
+    margin-left: 50px; /* Add some space between the image and the text on desktop */
+  }
+}
