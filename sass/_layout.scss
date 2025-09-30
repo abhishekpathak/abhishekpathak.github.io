@@ -48,6 +48,7 @@
 .intro {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .intro img {
@@ -63,6 +64,6 @@
 
   .intro img {
     margin-top: 25px;
-    margin-left: 50px; /* Add some space between the image and the text on desktop */
+    margin-left: 25px; /* Add some space between the image and the text on desktop */
   }
 }
