@@ -1,5 +1,6 @@
 #header {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 
@@ -48,22 +49,21 @@
 .intro {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
 
 .intro img {
   border-radius: 50%; /* Makes the image circular */
   object-fit: cover;  /* Ensures the image content fills the circle without distortion */
+  margin-left: 15px;
 }
 
 @media (min-width: 768px) {
+  #header {
+    flex-direction: row;
+  }
   .intro {
     flex-direction: row;
-    align-items: top; /* This will vertically center the items */
-  }
-
-  .intro img {
-    margin-top: 25px;
-    margin-left: 25px; /* Add some space between the image and the text on desktop */
   }
 }
