@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="
+    
+">
+      <meta name="author" content="4abhishekpathak">
+      <title>Abhishek Pathak</title>
+      <link rel="stylesheet" href="https://www.4abhishekpathak.com/site.css?h=d0b421693aae70d99623" />
+      <link rel="shortcut icon" type="image/png" href="https://www.4abhishekpathak.com/favicon.ico"/>
+      <link href="https://www.4abhishekpathak.com/rss.xml" rel="feed" type="application/rss+xml" title="Abhishek Pathak" />
+    </head>
+
+    <header id="header">
+        <h1 class="logo"><a href="/">4abhishekpathak</a></h1>
+        <ul>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/interests/">Interests</a></li>
+            <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/abhishekpathak/">OSS</a></li>
+        </ul>
+    </header>
+
+    <body>
+        <div id="content">
+          
+    <div class="post">
+        <div class="post__title">
+            <h1>The Importance of Insertion Sort</h1>
+            <div class="post__meta">
+                2019-10-02
+                
+            </div>
+            <hr />
+        </div>
+
+        <div class="post__body">
+            <p><img src="/blog/insertion-sort.jpg" alt="Title Image" /></p>
+<p>It is easy to pile up insertion sort along with other quadratic algorithms (bubble sort, selection sort) as an inefficient sorting algorithm and something only to be glanced at before moving on to the uber-cool Quicksort. Well, it turns out that insertion sort is the only O(n²) algorithm that is widely used in industry. Just what makes it  special? Lets dive deeper.</p>
+<p>Insertion sort closely mimics how we might sort a pack of cards.</p>
+<blockquote>
+<p>How do we sort a pack of cards? We pick one card and hold it in one hand. Then we pick another and place it before or after the card we are already holding. Then we pick a third card and "insert" it into its right place - before the first card, in the middle, or after the last card.</p>
+</blockquote>
+<p>In insertion sort, we start with the second item, and "insert" it in its correct position relative to the first item. The first 2 items are now sorted. We then pick the 3rd item and repeat.</p>
+<p><strong>More formally</strong>, for the <em>kth</em> item, we compare it with the <em>(k-1)th</em> item, then the <em>(k-2)th</em> item, and so on, until we find the correct place where the <em>kth</em> item can be inserted. Once found, we "insert" it. Inserting is done typically by shifting all the items 1 place to the right - the place emptied by the <em>kth</em> item.</p>
+<pre data-lang="python" style="background-color:#f5f5f5;color:#1f1f1f;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#72ab00;">import </span><span>unittest
+</span><span>
+</span><span style="color:#7f8989;"># insertion sort implementation
+</span><span style="color:#7f8989;"># time complexity: O(n^2)
+</span><span style="color:#7f8989;"># space complexity: O(1)
+</span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">insertion_sort</span><span>(</span><span style="color:#5597d6;">arr</span><span>):
+</span><span>    </span><span style="color:#72ab00;">if not </span><span>arr </span><span style="color:#72ab00;">or </span><span style="color:#b39f04;">len</span><span>(arr) </span><span style="color:#72ab00;">&lt;= </span><span style="color:#b3933a;">1</span><span>:
+</span><span>        </span><span style="color:#72ab00;">return </span><span>arr
+</span><span>    </span><span style="color:#72ab00;">for </span><span>i </span><span style="color:#72ab00;">in </span><span style="color:#b39f04;">range</span><span>(</span><span style="color:#b39f04;">len</span><span>(arr)):
+</span><span>        var </span><span style="color:#72ab00;">= </span><span>arr[i]
+</span><span>        j </span><span style="color:#72ab00;">= </span><span>i
+</span><span>        </span><span style="color:#72ab00;">while </span><span>j </span><span style="color:#72ab00;">&gt; </span><span style="color:#b3933a;">0 </span><span style="color:#72ab00;">and </span><span>arr[j</span><span style="color:#72ab00;">-</span><span style="color:#b3933a;">1</span><span>] </span><span style="color:#72ab00;">&gt; </span><span>var:
+</span><span>            arr[j] </span><span style="color:#72ab00;">= </span><span>arr[j</span><span style="color:#72ab00;">-</span><span style="color:#b3933a;">1</span><span>]
+</span><span>            j </span><span style="color:#72ab00;">-= </span><span style="color:#b3933a;">1
+</span><span>        arr[j] </span><span style="color:#72ab00;">= </span><span>var
+</span><span>        </span><span style="color:#b39f04;">print</span><span>(</span><span style="color:#d07711;">&quot;inserting &quot;</span><span>, var, </span><span style="color:#d07711;">&quot; at position&quot;</span><span>, j, </span><span style="color:#d07711;">&quot; in arr &quot;</span><span>, arr)
+</span><span>    </span><span style="color:#72ab00;">return </span><span>arr
+</span><span>
+</span><span style="color:#72ab00;">class </span><span style="color:#c23f31;">Test</span><span>(</span><span style="font-style:italic;color:#b06936;">unittest.TestCase</span><span>):
+</span><span>
+</span><span>    </span><span style="color:#72ab00;">def </span><span style="color:#c23f31;">test_insertion_sort</span><span>(</span><span style="color:#5597d6;">self</span><span>):
+</span><span>        </span><span style="color:#b39f04;">input </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">4</span><span>, </span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">5</span><span>, </span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">7</span><span>, </span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">9</span><span>, </span><span style="color:#b3933a;">2</span><span>]
+</span><span>        output </span><span style="color:#72ab00;">= </span><span style="color:#5597d6;">insertion_sort</span><span>(</span><span style="color:#b39f04;">input</span><span>)
+</span><span>        expected </span><span style="color:#72ab00;">= </span><span>[</span><span style="color:#b3933a;">0</span><span>, </span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">1</span><span>, </span><span style="color:#b3933a;">2</span><span>, </span><span style="color:#b3933a;">4</span><span>, </span><span style="color:#b3933a;">5</span><span>, </span><span style="color:#b3933a;">7</span><span>, </span><span style="color:#b3933a;">9</span><span>]
+</span><span>        </span><span style="color:#5597d6;">self</span><span>.</span><span style="color:#5597d6;">assertEqual</span><span>(expected, output)
+</span><span>
+</span><span>unittest.</span><span style="color:#5597d6;">main</span><span>(</span><span style="color:#5597d6;">verbosity</span><span style="color:#72ab00;">=</span><span style="color:#b3933a;">2</span><span>)        
+</span></code></pre>
+<p>Remember we said that insertion sort was important? Going through the formal algorithm above, we begin to see a few reasons for this:</p>
+<ul>
+<li>it is a <a rel="noopener nofollow noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Category:Stable_sorts">stable</a> sorting algorithm.</li>
+<li>it is an <a rel="noopener nofollow noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Online_algorithm">online</a> algorithm. This is a big deal when you have constantly increasing data sets which is true for a lot of real life scenarios.</li>
+<li>it is very efficient for semi-sorted arrays: for an array of n elements, where the maximum divergence an element can have from its “sorted” position is k, insertion sort takes O(kn) time. This reduces to O(n*n) in the worst case, but for semi-sorted arrays, k can be much smaller than n and insertion sort can run in practically O(n) time! Semi-sorted arrays are a lot more common in real life than we think.</li>
+</ul>
+<blockquote>
+<p>Python uses something called "<a rel="noopener nofollow noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Timsort">Timsort</a>", which uses insertion sort for smaller arrays, and merge sort for bigger ones.</p>
+</blockquote>
+<p>So the next time you see insertion sort, remember to appreciate its nuances. This is what Engineering is all about.</p>
+
+        </div>
+    </div>
+
+        </div>
+    </body>
+</html>

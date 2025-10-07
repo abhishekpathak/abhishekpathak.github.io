@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Abhishek Pathak</title>
+      <link>https://www.4abhishekpathak.com</link>
+      <description>Abhishek Pathak</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://www.4abhishekpathak.com/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Wed, 02 Oct 2019 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>The Importance of Insertion Sort</title>
+          <pubDate>Wed, 02 Oct 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://www.4abhishekpathak.com/blog/insertion-sort/</link>
+          <guid>https://www.4abhishekpathak.com/blog/insertion-sort/</guid>
+          <description xml:base="https://www.4abhishekpathak.com/blog/insertion-sort/">&lt;p&gt;&lt;img src=&quot;&#x2F;blog&#x2F;insertion-sort.jpg&quot; alt=&quot;Title Image&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;It is easy to pile up insertion sort along with other quadratic algorithms (bubble sort, selection sort) as an inefficient sorting algorithm and something only to be glanced at before moving on to the uber-cool Quicksort. Well, it turns out that insertion sort is the only O(n²) algorithm that is widely used in industry. Just what makes it  special? Lets dive deeper.&lt;&#x2F;p&gt;
+&lt;p&gt;Insertion sort closely mimics how we might sort a pack of cards.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;How do we sort a pack of cards? We pick one card and hold it in one hand. Then we pick another and place it before or after the card we are already holding. Then we pick a third card and &quot;insert&quot; it into its right place - before the first card, in the middle, or after the last card.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;In insertion sort, we start with the second item, and &quot;insert&quot; it in its correct position relative to the first item. The first 2 items are now sorted. We then pick the 3rd item and repeat.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;More formally&lt;&#x2F;strong&gt;, for the &lt;em&gt;kth&lt;&#x2F;em&gt; item, we compare it with the &lt;em&gt;(k-1)th&lt;&#x2F;em&gt; item, then the &lt;em&gt;(k-2)th&lt;&#x2F;em&gt; item, and so on, until we find the correct place where the &lt;em&gt;kth&lt;&#x2F;em&gt; item can be inserted. Once found, we &quot;insert&quot; it. Inserting is done typically by shifting all the items 1 place to the right - the place emptied by the &lt;em&gt;kth&lt;&#x2F;em&gt; item.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#f5f5f5;color:#1f1f1f;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;import &lt;&#x2F;span&gt;&lt;span&gt;unittest
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;# insertion sort implementation
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;# time complexity: O(n^2)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#7f8989;&quot;&gt;# space complexity: O(1)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;insertion_sort&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;arr&lt;&#x2F;span&gt;&lt;span&gt;):
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;if not &lt;&#x2F;span&gt;&lt;span&gt;arr &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;or &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span&gt;(arr) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&amp;lt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;arr
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span&gt;(arr)):
+&lt;&#x2F;span&gt;&lt;span&gt;        var &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;arr[i]
+&lt;&#x2F;span&gt;&lt;span&gt;        j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;i
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;while &lt;&#x2F;span&gt;&lt;span&gt;j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;and &lt;&#x2F;span&gt;&lt;span&gt;arr[j&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;var:
+&lt;&#x2F;span&gt;&lt;span&gt;            arr[j] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;arr[j&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span&gt;            j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;-= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1
+&lt;&#x2F;span&gt;&lt;span&gt;        arr[j] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;var
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;print&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d07711;&quot;&gt;&amp;quot;inserting &amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, var, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d07711;&quot;&gt;&amp;quot; at position&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, j, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d07711;&quot;&gt;&amp;quot; in arr &amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;, arr)
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span&gt;arr
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;class &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;Test&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#b06936;&quot;&gt;unittest.TestCase&lt;&#x2F;span&gt;&lt;span&gt;):
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c23f31;&quot;&gt;test_insertion_sort&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span&gt;):
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;input &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;7&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;9&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span&gt;        output &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;insertion_sort&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b39f04;&quot;&gt;input&lt;&#x2F;span&gt;&lt;span&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;        expected &lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;4&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;7&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;9&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;assertEqual&lt;&#x2F;span&gt;&lt;span&gt;(expected, output)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;unittest.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#5597d6;&quot;&gt;verbosity&lt;&#x2F;span&gt;&lt;span style=&quot;color:#72ab00;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b3933a;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;)        
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Remember we said that insertion sort was important? Going through the formal algorithm above, we begin to see a few reasons for this:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;it is a &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Category:Stable_sorts&quot;&gt;stable&lt;&#x2F;a&gt; sorting algorithm.&lt;&#x2F;li&gt;
+&lt;li&gt;it is an &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Online_algorithm&quot;&gt;online&lt;&#x2F;a&gt; algorithm. This is a big deal when you have constantly increasing data sets which is true for a lot of real life scenarios.&lt;&#x2F;li&gt;
+&lt;li&gt;it is very efficient for semi-sorted arrays: for an array of n elements, where the maximum divergence an element can have from its “sorted” position is k, insertion sort takes O(kn) time. This reduces to O(n*n) in the worst case, but for semi-sorted arrays, k can be much smaller than n and insertion sort can run in practically O(n) time! Semi-sorted arrays are a lot more common in real life than we think.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Python uses something called &quot;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Timsort&quot;&gt;Timsort&lt;&#x2F;a&gt;&quot;, which uses insertion sort for smaller arrays, and merge sort for bigger ones.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;So the next time you see insertion sort, remember to appreciate its nuances. This is what Engineering is all about.&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>
